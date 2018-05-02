@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="551-37-gxw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,13 +13,13 @@
         <!--Pictory-->
         <scene sceneID="jlw-A2-gZ2">
             <objects>
-                <tableViewController id="1Bg-Bu-2xb" sceneMemberID="viewController">
+                <tableViewController id="1Bg-Bu-2xb" customClass="JournalTableViewController" customModule="Pictory" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ROO-wQ-JCp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JournalCell" rowHeight="100" id="NmS-IB-0Qn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JournalCell" rowHeight="100" id="NmS-IB-0Qn" customClass="JournalTableViewCell" customModule="Pictory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NmS-IB-0Qn" id="CIe-19-6tf">
@@ -47,6 +47,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="nameLabel" destination="Qf4-La-Jgx" id="ZaW-vy-Kd0"/>
+                                    <outlet property="timeLabel" destination="G7z-4R-YHa" id="MJi-eQ-FyL"/>
+                                    <outlet property="timelineIcon" destination="HGn-Y9-n4E" id="HS4-tr-xKx"/>
                                     <segue destination="pqG-w0-1pz" kind="show" identifier="SingleJournalSegue" id="3bT-Ra-hHg"/>
                                 </connections>
                             </tableViewCell>
@@ -72,12 +75,12 @@
         <!--Journal Name-->
         <scene sceneID="XOT-H2-FG8">
             <objects>
-                <viewController title="Journal Name" id="pqG-w0-1pz" sceneMemberID="viewController">
+                <viewController title="Journal Name" id="pqG-w0-1pz" customClass="JournalViewController" customModule="Pictory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zmq-BK-dOS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZ4-YW-hG5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZ4-YW-hG5">
                                 <rect key="frame" x="16" y="80" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -114,7 +117,7 @@
         <!--Create a new journal-->
         <scene sceneID="HcA-N5-dOD">
             <objects>
-                <viewController id="ZTu-g5-bfJ" sceneMemberID="viewController">
+                <viewController id="ZTu-g5-bfJ" customClass="CreateViewController" customModule="Pictory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n8v-rB-ZTs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,6 +165,14 @@
                                     <!--2018-05-02 10:13:49 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zp-5J-DTj">
+                                <rect key="frame" x="127" y="595" width="120" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Update" backgroundImage="btn_background">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydX-Mf-Y4E">
                                 <rect key="frame" x="127" y="595" width="120" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -179,6 +190,12 @@
                             <color key="tintColor" red="0.99717611074447632" green="0.31712386761119277" blue="0.3233233956508208" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="createBtn" destination="ydX-Mf-Y4E" id="gTD-lG-AfI"/>
+                        <outlet property="nameTextField" destination="m42-Bo-tY9" id="3EJ-nN-FdH"/>
+                        <outlet property="timePicker" destination="x26-C1-yJW" id="5fu-1C-Te5"/>
+                        <outlet property="updateBtn" destination="6Zp-5J-DTj" id="Trc-3n-R59"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BqQ-rt-Wvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
