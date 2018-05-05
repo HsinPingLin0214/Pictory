@@ -12,6 +12,7 @@
 		3B9747C32099D6A0001E9799 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9747C22099D6A0001E9799 /* CreateViewController.swift */; };
 		3B9747C52099D6BB001E9799 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9747C42099D6BB001E9799 /* JournalViewController.swift */; };
 		3B9747C72099D87E001E9799 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9747C62099D87E001E9799 /* JournalTableViewCell.swift */; };
+		3B9747C9209C0636001E9799 /* JournalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9747C8209C0636001E9799 /* JournalImage.swift */; };
 		3BD5A5932096E8CF00CAD030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5A5922096E8CF00CAD030 /* AppDelegate.swift */; };
 		3BD5A5982096E8CF00CAD030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD5A5962096E8CF00CAD030 /* Main.storyboard */; };
 		3BD5A59A2096E8CF00CAD030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD5A5992096E8CF00CAD030 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		3B9747C22099D6A0001E9799 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		3B9747C42099D6BB001E9799 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		3B9747C62099D87E001E9799 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
+		3B9747C8209C0636001E9799 /* JournalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalImage.swift; sourceTree = "<group>"; };
 		3BD5A58F2096E8CF00CAD030 /* Pictory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pictory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD5A5922096E8CF00CAD030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD5A5972096E8CF00CAD030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				3B9747BE2099D522001E9799 /* Journal.swift */,
+				3B9747C8209C0636001E9799 /* JournalImage.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				3B9747C32099D6A0001E9799 /* CreateViewController.swift in Sources */,
 				3B9747C72099D87E001E9799 /* JournalTableViewCell.swift in Sources */,
 				3BD5A5932096E8CF00CAD030 /* AppDelegate.swift in Sources */,
+				3B9747C9209C0636001E9799 /* JournalImage.swift in Sources */,
 				3B9747C12099D667001E9799 /* JournalTableViewController.swift in Sources */,
 				3B9747C52099D6BB001E9799 /* JournalViewController.swift in Sources */,
 				3B9747BF2099D522001E9799 /* Journal.swift in Sources */,
