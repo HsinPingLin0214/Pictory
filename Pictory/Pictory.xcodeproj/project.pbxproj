@@ -19,6 +19,7 @@
 		3BD5A59D2096E8CF00CAD030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD5A59B2096E8CF00CAD030 /* LaunchScreen.storyboard */; };
 		3BD5A5A82096E8D000CAD030 /* PictoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5A5A72096E8D000CAD030 /* PictoryTests.swift */; };
 		3BD5A5B32096E8D000CAD030 /* PictoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5A5B22096E8D000CAD030 /* PictoryUITests.swift */; };
+		3BFD80A220A440F9001FCB06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BFD80A120A440F9001FCB06 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3BD5A5AE2096E8D000CAD030 /* PictoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PictoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD5A5B22096E8D000CAD030 /* PictoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictoryUITests.swift; sourceTree = "<group>"; };
 		3BD5A5B42096E8D000CAD030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFD80A120A440F9001FCB06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				3BD5A5962096E8CF00CAD030 /* Main.storyboard */,
 				3BD5A5992096E8CF00CAD030 /* Assets.xcassets */,
 				3BD5A59B2096E8CF00CAD030 /* LaunchScreen.storyboard */,
+				3BFD80A120A440F9001FCB06 /* GoogleService-Info.plist */,
 				3BD5A59E2096E8CF00CAD030 /* Info.plist */,
 			);
 			path = Pictory;
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BD5A59D2096E8CF00CAD030 /* LaunchScreen.storyboard in Resources */,
+				3BFD80A220A440F9001FCB06 /* GoogleService-Info.plist in Resources */,
 				3BD5A59A2096E8CF00CAD030 /* Assets.xcassets in Resources */,
 				3BD5A5982096E8CF00CAD030 /* Main.storyboard in Resources */,
 			);
