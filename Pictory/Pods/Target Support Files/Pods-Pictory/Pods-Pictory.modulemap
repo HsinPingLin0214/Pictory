@@ -1,0 +1,6 @@
+framework module Pods_Pictory {
+  umbrella header "Pods-Pictory-umbrella.h"
+
+  export *
+  module * { export * }
+}

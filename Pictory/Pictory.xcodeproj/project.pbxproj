@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0084E720AD733500332E19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0084E620AD733500332E19 /* LoginViewController.swift */; };
+		3B0084E720AD733500332E19 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0084E620AD733500332E19 /* AuthViewController.swift */; };
 		3B0084E920AD793F00332E19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0084E820AD793E00332E19 /* GoogleService-Info.plist */; };
 		3B9747BF2099D522001E9799 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9747BE2099D522001E9799 /* Journal.swift */; };
 		3B9747C12099D667001E9799 /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9747C02099D667001E9799 /* JournalTableViewController.swift */; };
@@ -44,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B0084E620AD733500332E19 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3B0084E620AD733500332E19 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3B0084E820AD793E00332E19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B3C3C74DF6A942673EEEDCC /* Pods-Pictory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pictory/Pods-Pictory.debug.xcconfig"; sourceTree = "<group>"; };
 		3B9747BE2099D522001E9799 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				3B9747C02099D667001E9799 /* JournalTableViewController.swift */,
 				3B9747C22099D6A0001E9799 /* CreateViewController.swift */,
 				3B9747C42099D6BB001E9799 /* JournalViewController.swift */,
-				3B0084E620AD733500332E19 /* LoginViewController.swift */,
+				3B0084E620AD733500332E19 /* AuthViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,7 +434,7 @@
 				3B9747C72099D87E001E9799 /* JournalTableViewCell.swift in Sources */,
 				3BD5A5932096E8CF00CAD030 /* AppDelegate.swift in Sources */,
 				3B9747C9209C0636001E9799 /* JournalImage.swift in Sources */,
-				3B0084E720AD733500332E19 /* LoginViewController.swift in Sources */,
+				3B0084E720AD733500332E19 /* AuthViewController.swift in Sources */,
 				3B9747C12099D667001E9799 /* JournalTableViewController.swift in Sources */,
 				3B9747C52099D6BB001E9799 /* JournalViewController.swift in Sources */,
 				3B9747BF2099D522001E9799 /* Journal.swift in Sources */,

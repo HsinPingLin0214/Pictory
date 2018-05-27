@@ -1,0 +1,6 @@
+framework module Pods_PictoryTests {
+  umbrella header "Pods-PictoryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
