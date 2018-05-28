@@ -21,5 +21,16 @@ class Journal: NSObject {
         self.images = images
     }
     
-
+    func getDictionary() -> NSDictionary {
+        var dictImages:[NSDictionary] = []
+        for image in self.images {
+            dictImages.append(image.getDictionary())
+        }
+        return [
+            "name": self.name,
+            "startDate": self.startDate.description,
+            "endDate": self.endDate.description,
+            "images": dictImages
+        ]
+    }
 }

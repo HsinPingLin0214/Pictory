@@ -16,12 +16,10 @@ class AuthViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        handle = Auth.auth().addStateDidChangeListener( {
-            (auth, user) in
-            
-            if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }
+        handle = Auth.auth().addStateDidChangeListener( {(auth, user) in
+//            if user != nil {
+//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+//            }
         })
     }
     
@@ -32,21 +30,24 @@ class AuthViewController: UIViewController {
     
     @IBAction func registerAccount(_ sender: Any) {
         guard let password = passwordTextField.text else {
-            displayErrorMessage("Please enter a password")
+            displayErrorMessage("Please enter a password.")
             return
         }
         
         guard let email = emailTextField.text else {
-            displayErrorMessage("Please enter an email address")
+            displayErrorMessage("Please enter an email address.")
             return
         }
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                if error != nil {
-                    self.displayErrorMessage(error!.localizedDescription)
-                }
+            if error != nil {
+                self.displayErrorMessage(error!.localizedDescription)
+            }
+            
+            let alertController = UIAlertController(title: "Success", message: "New account had been created, sign in with your account detail.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
     func displayErrorMessage(_ errorMessage: String) {
@@ -56,18 +57,25 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func loginAccount(_ sender: Any) {
-        if emailTextField.text != "" || passwordTextField.text != ""
-        {
-            Auth.auth().signInAnonymously(
-                completion: {(user, error) in
-                    if error != nil
-                    {
-                        print(error ?? "Error")
-                        
-                    }
-                    return
-            })
-            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+        // Add validation for log in button.
+        // How to validate passwordTextField?
+        if emailTextField.text != "" && passwordTextField != nil {
+            guard let password = self.passwordTextField.text else {
+                self.displayErrorMessage("Please enter a password")
+                return
+            }
+            guard let email = self.emailTextField.text else {
+                self.displayErrorMessage("Please enter an email address")
+                return
+            }
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                if error != nil {
+                    self.displayErrorMessage(error!.localizedDescription)
+                }
+            }
+        } else {
+            self.displayErrorMessage("Please enter an email address and a password.")
+            return
         }
     }
     

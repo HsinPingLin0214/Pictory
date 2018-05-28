@@ -19,4 +19,14 @@ class JournalImage: NSObject {
         imageLocation = location
     }
     
+    func getDictionary() -> NSDictionary {
+        return [
+            "imageURL": self.imageURL,
+            "imageDate": self.imageDate.description,
+            "imageLocation": [
+                self.imageLocation[0],
+                self.imageLocation[1]
+            ]
+        ]
+    }
 }

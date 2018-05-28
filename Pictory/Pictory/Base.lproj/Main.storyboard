@@ -60,7 +60,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pictory" id="t2f-vl-QYJ">
-                        <barButtonItem key="leftBarButtonItem" title="About" id="W00-c5-Sga">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="W00-c5-Sga">
                             <connections>
                                 <segue destination="lq9-nF-m75" kind="show" identifier="aboutSegue" id="TGd-uV-uu1"/>
                             </connections>
@@ -122,17 +122,40 @@
         <!--About Pictory-->
         <scene sceneID="tsI-8g-hGp">
             <objects>
-                <viewController title="About Pictory" id="lq9-nF-m75" sceneMemberID="viewController">
+                <viewController title="About Pictory" id="lq9-nF-m75" customClass="AboutPageViewController" customModule="Pictory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udS-o7-iaF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Libraries used:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glT-V6-unL">
+                                <rect key="frame" x="16" y="89" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASx-fn-LyA">
+                                <rect key="frame" x="16" y="118" width="343" height="244"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Bhd-bm-tGu"/>
                     </view>
+                    <navigationItem key="navigationItem" title="About Pictory" id="3N6-5K-aX7">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="q9h-qp-9oT">
+                            <connections>
+                                <action selector="logOut:" destination="lq9-nF-m75" id="nWC-lQ-gZp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEG-Bw-s62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="-597"/>
+            <point key="canvasLocation" x="735.20000000000005" y="-597.75112443778119"/>
         </scene>
         <!--Create a new journal-->
         <scene sceneID="HcA-N5-dOD">
@@ -257,8 +280,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gd-Cz-C7c">
+                                <rect key="frame" x="237" y="369" width="120" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Log in" backgroundImage="btn_background">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginAccount:" destination="X9X-EJ-PZ4" eventType="touchUpInside" id="M7n-g5-f7v"/>
+                                    <segue destination="551-37-gxw" kind="show" identifier="loginSegue" id="Ita-rU-TWq"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-P9-zru">
-                                <rect key="frame" x="14" y="297" width="120" height="72"/>
+                                <rect key="frame" x="14" y="369" width="120" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Register">
@@ -268,18 +303,13 @@
                                     <action selector="registerAccount:" destination="X9X-EJ-PZ4" eventType="touchUpInside" id="LFH-WY-0fQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gd-Cz-C7c">
-                                <rect key="frame" x="237" y="297" width="120" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please use more than six characters long for password." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F8-tW-JnT">
+                                <rect key="frame" x="25" y="284" width="321" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Log in" backgroundImage="btn_background">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginAccount:" destination="X9X-EJ-PZ4" eventType="touchUpInside" id="M7n-g5-f7v"/>
-                                    <segue destination="551-37-gxw" kind="show" id="3yG-Oy-yNm"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="cuB-wS-lnP"/>

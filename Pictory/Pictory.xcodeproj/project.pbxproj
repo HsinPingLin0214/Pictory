@@ -21,6 +21,7 @@
 		3BD5A59D2096E8CF00CAD030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD5A59B2096E8CF00CAD030 /* LaunchScreen.storyboard */; };
 		3BD5A5A82096E8D000CAD030 /* PictoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5A5A72096E8D000CAD030 /* PictoryTests.swift */; };
 		3BD5A5B32096E8D000CAD030 /* PictoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5A5B22096E8D000CAD030 /* PictoryUITests.swift */; };
+		3BFF1CF120BAB0D500054289 /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1CF020BAB0D500054289 /* AboutPageViewController.swift */; };
 		CA96DDFF8F849B77D978B349 /* Pods_PictoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E8A50DBCB12C2B0DC8E0B0 /* Pods_PictoryTests.framework */; };
 		E45DF632A9783B955201C436 /* Pods_Pictory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D11C3CE67F3304EC9370D35 /* Pods_Pictory.framework */; };
 		F9AB47D4C4A20A859BE21FDB /* Pods_PictoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D844798507FC604D12FA0AC /* Pods_PictoryUITests.framework */; };
@@ -65,6 +66,7 @@
 		3BD5A5AE2096E8D000CAD030 /* PictoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PictoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD5A5B22096E8D000CAD030 /* PictoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictoryUITests.swift; sourceTree = "<group>"; };
 		3BD5A5B42096E8D000CAD030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFF1CF020BAB0D500054289 /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
 		63E8A50DBCB12C2B0DC8E0B0 /* Pods_PictoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF63C79BFF08691935A1247 /* Pods-PictoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PictoryTests/Pods-PictoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D844798507FC604D12FA0AC /* Pods_PictoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				3B9747C22099D6A0001E9799 /* CreateViewController.swift */,
 				3B9747C42099D6BB001E9799 /* JournalViewController.swift */,
 				3B0084E620AD733500332E19 /* AuthViewController.swift */,
+				3BFF1CF020BAB0D500054289 /* AboutPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				3B0084E720AD733500332E19 /* AuthViewController.swift in Sources */,
 				3B9747C12099D667001E9799 /* JournalTableViewController.swift in Sources */,
 				3B9747C52099D6BB001E9799 /* JournalViewController.swift in Sources */,
+				3BFF1CF120BAB0D500054289 /* AboutPageViewController.swift in Sources */,
 				3B9747BF2099D522001E9799 /* Journal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

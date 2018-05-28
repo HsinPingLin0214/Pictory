@@ -7,12 +7,40 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 
 class JournalTableViewController: UITableViewController {
+    
+    // MARK: - Variables
+    private let SECTION_NEWJOURNAL = 0
+    private let SECTION_JOURNALS = 1
+//    var DisplayName: String?
+//    var ChannelTextField: UITextField?
+    private var journals: [Journal] = []
+    private var journalRef = Database.database().reference().child("journals")
+    private var journalRefHandle: DatabaseHandle?
+    
+    // MARK: - Firebase Observation
+    private func observeJournals()
+    {
+        journalRefHandle = journalRef.observe(.childAdded, with: {
+            (snapshot) -> Void in
+            let data = snapshot.value as!
+                Dictionary<String, AnyObject>
+            let id = snapshot.key
+            if let name = data["name"] as! String?, name.count > 0 {
+//                self.journals.append(Journal(name: name))
+                self.tableView.reloadData()
+            } else {
+                print("Error")
+            }
+        })
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        observeJournals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

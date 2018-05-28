@@ -1,19 +1,27 @@
 //
-//  CreateViewController.swift
+//  AboutPageViewController.swift
 //  Pictory
 //
-//  Created by Jenna on 2/5/18.
+//  Created by Jenna on 27/5/18.
 //  Copyright © 2018 Hsin-Ping Lin. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class CreateViewController: UIViewController {
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var timePicker: UIDatePicker!
-    @IBOutlet weak var createBtn: UIButton!
-    @IBOutlet weak var updateBtn: UIButton!
+class AboutPageViewController: UIViewController {
+
+    @IBAction func logOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch {}
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+//        let userID = Auth.auth().currentUser!.uid
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
