@@ -28,19 +28,31 @@ class JournalTableViewController: UITableViewController {
             (snapshot) -> Void in
             let data = snapshot.value as!
                 Dictionary<String, AnyObject>
-            let id = snapshot.key
-            if let name = data["name"] as! String?, name.count > 0 {
-//                self.journals.append(Journal(name: name))
-                self.tableView.reloadData()
-            } else {
-                print("Error")
-            }
+//            let id = snapshot.key
+//            if let name = data["name"] as! String?, name.count > 0 {
+////                self.journals.append(Journal(name: name))
+//                self.tableView.reloadData()
+//            } else {
+//                print("Error")
+//            }
         })
+    }
+    
+    private func firstList(){
+        var journal = Journal(name: "Start your pictory", startDate: Date(), endDate: Date(), images: [])
+//        print(journal.getDictionary())
+        let data  = try! JSONSerialization.data(withJSONObject: journal.getDictionary(), options: [])
+        print(String(data: data, encoding: .utf8)!)
+        
+//        journalRef.setValue(data)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        observeJournals()
+        firstList()
+//        observeJournals()
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

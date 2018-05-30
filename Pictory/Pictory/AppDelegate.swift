@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        var j = Journal(name: "test", startDate: Date(), endDate: Date(), images: [])
-//        print(j.getDictionary())
-        let data  = try! JSONSerialization.data(withJSONObject: j.getDictionary(), options: [])
-        print(String(data: data, encoding: .utf8)!)
         return true
     }
 

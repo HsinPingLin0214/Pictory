@@ -17,9 +17,9 @@ class AuthViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handle = Auth.auth().addStateDidChangeListener( {(auth, user) in
-//            if user != nil {
-//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-//            }
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
         })
     }
     
@@ -59,23 +59,19 @@ class AuthViewController: UIViewController {
     @IBAction func loginAccount(_ sender: Any) {
         // Add validation for log in button.
         // How to validate passwordTextField?
-        if emailTextField.text != "" && passwordTextField != nil {
-            guard let password = self.passwordTextField.text else {
-                self.displayErrorMessage("Please enter a password")
-                return
-            }
-            guard let email = self.emailTextField.text else {
-                self.displayErrorMessage("Please enter an email address")
-                return
-            }
-            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                if error != nil {
-                    self.displayErrorMessage(error!.localizedDescription)
-                }
-            }
-        } else {
-            self.displayErrorMessage("Please enter an email address and a password.")
+        
+        guard let password = self.passwordTextField.text else {
+            self.displayErrorMessage("Please enter a password")
             return
+        }
+        guard let email = self.emailTextField.text else {
+            self.displayErrorMessage("Please enter an email address")
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                self.displayErrorMessage(error!.localizedDescription)
+            }
         }
     }
     
