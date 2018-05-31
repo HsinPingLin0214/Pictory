@@ -14,46 +14,82 @@ class JournalTableViewController: UITableViewController {
     
     // MARK: - Variables
     private let SECTION_NEWJOURNAL = 0
-    private let SECTION_JOURNALS = 1
+    private let SECTION_COUNT = 1
 //    var DisplayName: String?
 //    var ChannelTextField: UITextField?
     private var journals: [Journal] = []
     private var journalRef = Database.database().reference().child("journals")
     private var journalRefHandle: DatabaseHandle?
+    private let dateFormatter = DateFormatter()
+    private let dateShowFormatter = DateFormatter()
     
     // MARK: - Firebase Observation
     private func observeJournals()
     {
-        journalRefHandle = journalRef.observe(.childAdded, with: {
-            (snapshot) -> Void in
-            let data = snapshot.value as!
-                Dictionary<String, AnyObject>
-//            let id = snapshot.key
-//            if let name = data["name"] as! String?, name.count > 0 {
-////                self.journals.append(Journal(name: name))
-//                self.tableView.reloadData()
-//            } else {
-//                print("Error")
-//            }
+        journalRef.observe(.value, with: { snapshot in
+
+            self.dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
+            
+            var newJournals: [Journal] = []
+            
+            print(snapshot)
+
+            for child in snapshot.children {
+                print(snapshot.children)
+                if let snapshot = child as? DataSnapshot {
+                    print(snapshot.key)
+                    if let value = snapshot.value as? NSDictionary {
+                        let name = value["name"] as! String
+                        print(name)
+                        
+                        let startDate:Date = self.dateFormatter.date(from: (value["startDate"] as? String)!)!
+                        
+                        let endDate:Date = self.dateFormatter.date(from: (value["endDate"] as? String)!)!
+
+                        let journal = Journal(name: name, startDate: startDate, endDate: endDate, images: [])
+                        
+                        print(journal)
+                        newJournals.append(journal)
+                        
+                        print(newJournals)
+                    }
+                }
+                // 4
+//                if let snapshot = child as? DataSnapshot,
+//                    let journal = Journal(name: snapshot.value(forKey: "name") as! String, startDate: snapshot.value(forKey: "startDate") as! Date, endDate: snapshot.value(forKey: "endDate") as! Date, images: []) as? Journal {
+//                    newJournals.append(journal)
+//                }
+            }
+
+            // 5
+            self.journals = newJournals
+            self.tableView.reloadData()
         })
+        
     }
     
-    private func firstList(){
-        var journal = Journal(name: "Start your pictory", startDate: Date(), endDate: Date(), images: [])
-//        print(journal.getDictionary())
-        let data  = try! JSONSerialization.data(withJSONObject: journal.getDictionary(), options: [])
-        print(String(data: data, encoding: .utf8)!)
+    private func firstjournal(){
+        var journal1 = Journal(name: "Start your journal", startDate: Date(), endDate: Date(), images: [])
         
-//        journalRef.setValue(data)
+        var journal2 = Journal(name: "Second journal", startDate: Date(), endDate: Date(), images: [])
+        
+        let firstJournalRef = journalRef.child("journal001")
+        let SecondJournalRef = journalRef.child("journal002")
+        
+        //(setValue:) Firebase can only store objects of type NSNumber, NSString, NSDictionary, and NSArray.
+        firstJournalRef.setValue(journal1.getDictionary())
+        SecondJournalRef.setValue(journal2.getDictionary())
+        
+//        print(journal.getDictionary())
+//        let data  = try! JSONSerialization.data(withJSONObject: journal.getDictionary(), options: [])
+//        print(String(data: data, encoding: .utf8)!)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstList()
-//        observeJournals()
+        firstjournal()
+        observeJournals()
         
-        
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -67,26 +103,48 @@ class JournalTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == SECTION_COUNT {
+            return 1
+        }else {
+            return journals.count
+        }
     }
 
-    /*
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0;//Choose your custom row height
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell", for: indexPath)
+//        var cellReuseIdentifier = "JournalCell"
+        if indexPath.section == SECTION_NEWJOURNAL {
+            //Configure the cell ...
+            let journalCell = cell as? JournalTableViewCell
+            
+            journalCell?.nameLabel.text = journals[indexPath.row].name
+            
+            // Using
+            // self.dateShowFormatter.dateFormat = "YYYY-MM-dd"
+            // self.dateShowFormatter.dateFormat = "dd-MM-YYYY"
+            // Using two labels to display startDate - endDate in storyboard
+            journalCell?.timeLabel.text = journals[indexPath.row].startDate.description
+        }
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
