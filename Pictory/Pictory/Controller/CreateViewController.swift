@@ -21,7 +21,6 @@ class CreateViewController: UIViewController {
     let outsideMonthColor = UIColor.lightGray
     let monthColor = UIColor.darkGray
     let selectedMonthColor = UIColor.white
-    let currentDateSelectedViewColor = UIColor.white
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -50,18 +49,19 @@ class CreateViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CustomCell else {return}
-        //selected one
-//        if cellState.isSelected {
-//            validCell.selectedView.isHidden = false
-//        } else {
-//            validCell.selectedView.isHidden = true
-//        }
-//        ramdom selected
+        /* // Selected one date
+        if cellState.isSelected {
+            validCell.selectedView.isHidden = false
+        } else {
+            validCell.selectedView.isHidden = true
+        }
+        ramdom selected */
+        
+        // Range select
         switch cellState.selectedPosition() {
         case .full, .left, .right:
             validCell.selectedView.isHidden = false
@@ -99,7 +99,8 @@ class CreateViewController: UIViewController {
 
 extension CreateViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
 
-    
+    // Tutorial 1 - set up calendar: https://www.youtube.com/watch?v=zOphH-h-qCs
+    // Totorial 2 - customise calendar: https://www.youtube.com/watch?v=Qd_Gc67xzlw
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss Z"
         dateFormatter.timeZone = Calendar.current.timeZone
@@ -122,14 +123,6 @@ extension CreateViewController: JTAppleCalendarViewDelegate, JTAppleCalendarView
         sharedFunctionToConfigureCell(myCustomCell: cell, cellState: cellState, date: date)
         cell.dateLabel.text = cellState.text
         handleCellSelected(view: cell, cellState: cellState)
-//        calendar.selectDates(
-//            from: cellState.selectedPosition().left,
-//            to: cellState.selectedPosition().right,
-//            triggerSelectionDelegate: true,
-//            keepSelectionIfMultiSelectionAllowed: true)
-//        calendar.reloadData()
-        
-        
         handleCelltextColor(view: cell, cellState: cellState)
         return cell
     }
@@ -157,9 +150,9 @@ extension CreateViewController: JTAppleCalendarViewDelegate, JTAppleCalendarView
         self.setupViewsOfCalendar(from: visibleDates)
     }
     
+    // Deselect Date in range select
     // https://github.com/patchthecode/JTAppleCalendar/issues/244
     func calendar(_ calendar: JTAppleCalendarView, shouldDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
-        
         let selectedDates = calendar.selectedDates
         
         if selectedDates.contains(date) {

@@ -23,6 +23,7 @@ class JournalTableViewController: UITableViewController {
     private let dateFormatter = DateFormatter()
     private let dateShowFormatter = DateFormatter()
     
+    // Tutorial: https://firebase.google.com/docs/database/ios/read-and-write?authuser=1
     // MARK: - Firebase Observation
     private func observeJournals()
     {
@@ -68,10 +69,11 @@ class JournalTableViewController: UITableViewController {
         
     }
     
+    // Journal sample
     private func firstjournal(){
-        var journal1 = Journal(name: "Start your journal", startDate: Date(), endDate: Date(), images: [])
+        let journal1 = Journal(name: "Start your journal", startDate: Date(), endDate: Date(), images: [])
         
-        var journal2 = Journal(name: "Second journal", startDate: Date(), endDate: Date(), images: [])
+        let journal2 = Journal(name: "Second journal", startDate: Date(), endDate: Date(), images: [])
         
         let firstJournalRef = journalRef.child("journal001")
         let SecondJournalRef = journalRef.child("journal002")
