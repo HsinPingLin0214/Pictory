@@ -42,10 +42,8 @@ class JournalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     func handleCelltextColor(view: JTAppleCell?, cellState: CellState) {
-        guard let validCell = view as? CustomCell else {return}
-        
+        guard let validCell = view as? CustomPhotoCell else {return}
         if cellState.isSelected {
             validCell.dateLabel.textColor = UIColor.white
         } else {
@@ -72,20 +70,19 @@ extension JournalViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVie
         dateFormatter.locale = Calendar.current.locale
         
         let startDate = dateFormatter.date(from: "2018-06-01 00:00:00 +0000")!
-        let endDate = dateFormatter.date(from: "2018-07-31 00:00:00 +0000")!
+        let endDate = dateFormatter.date(from: "2018-06-30 00:00:00 +0000")!
         
         let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
         return parameters
     }
     
-    
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        let cell = cell as! CustomCell
+        let cell = cell as! CustomPhotoCell
         sharedFunctionToConfigureCell(myCustomCell: cell, cellState: cellState, date: date)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomPhotoCell", for: indexPath) as! CustomPhotoCell
         sharedFunctionToConfigureCell(myCustomCell: cell, cellState: cellState, date: date)
         cell.dateLabel.text = cellState.text
 //        handleCellSelected(view: cell, cellState: cellState)
@@ -93,7 +90,7 @@ extension JournalViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVie
         return cell
     }
     
-    func sharedFunctionToConfigureCell(myCustomCell: CustomCell, cellState: CellState, date: Date) {
+    func sharedFunctionToConfigureCell(myCustomCell: CustomPhotoCell, cellState: CellState, date: Date) {
         myCustomCell.dateLabel.text = cellState.text
     }
 }

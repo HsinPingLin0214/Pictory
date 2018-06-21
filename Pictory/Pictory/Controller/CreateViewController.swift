@@ -51,6 +51,7 @@ class CreateViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // Handale date selected
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CustomCell else {return}
         /* // Selected one date
@@ -75,6 +76,7 @@ class CreateViewController: UIViewController {
         }
     }
     
+    // Handale color of calendar date
     func handleCelltextColor(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CustomCell else {return}
         
@@ -89,9 +91,9 @@ class CreateViewController: UIViewController {
         }
     }
     
+    // Display Calendar month and year
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
-        
         self.dateFormatter.dateFormat = "MMMM yyyy"
         self.month.text = self.dateFormatter.string(from: date)
     }
@@ -172,24 +174,26 @@ extension CreateViewController: JTAppleCalendarViewDelegate, JTAppleCalendarView
         }
         return true
     }
-//    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
-//        let selectedDates = calendar.selectedDates
-//
-//        if selectedDates.contains(date) {
-//            if (selectedDates.count == 2 && selectedDates.first != date && selectedDates.last != date) {
-//
-//                let indexOfDate = selectedDates.index(of: date)
-//                let secondDate = selectedDates[indexOfDate!]
-//                calendar.deselectAllDates()
-//                calendar.selectDates(
-//                    from: selectedDates.first!,
-//                    to: secondDate,
-//                    triggerSelectionDelegate: true,
-//                    keepSelectionIfMultiSelectionAllowed: true)
-//
-//                calendar.reloadData()
-//            }
-//        }
-//        return true
-//    }
+    
+    /* // Should Select Date for range select
+    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
+        let selectedDates = calendar.selectedDates
+
+        if selectedDates.contains(date) {
+            if (selectedDates.count == 2 && selectedDates.first != date && selectedDates.last != date) {
+
+                let indexOfDate = selectedDates.index(of: date)
+                let secondDate = selectedDates[indexOfDate!]
+                calendar.deselectAllDates()
+                calendar.selectDates(
+                    from: selectedDates.first!,
+                    to: secondDate,
+                    triggerSelectionDelegate: true,
+                    keepSelectionIfMultiSelectionAllowed: true)
+
+                calendar.reloadData()
+            }
+        }
+        return true
+    } */
 }
